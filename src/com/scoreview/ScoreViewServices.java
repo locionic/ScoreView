@@ -211,14 +211,14 @@ public class ScoreViewServices {
 				Connection conn = null;
 				try {
 					conn = new ConnectDB().getConnection();
-					PreparedStatement stm = conn.prepareStatement("INSERT INTO STUDENT VALUES(?,?,?,?)");
+					PreparedStatement stm = conn.prepareStatement("INSERT INTO student VALUES(?,?,?,?)");
 					stm.setString(1, username);
 					stm.setString(2, password);
 					stm.setString(3, name);
 					stm.setString(4, email);
 					stm.executeUpdate();
 					conn.close();
-					sendOTP2("noone000a@gmail.com");
+					sendOTP2(email);
 					return true;
 				}
 				catch (Exception e){
